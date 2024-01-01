@@ -9,10 +9,11 @@ pipeline {
 
   stages {
 
-    stage('Checkout Source') {
+    stage('Git checkout') {
       steps {
-        git 'https://github.com/tanreaper/jenkins-react-deployment.git'
-      }
+        git(branch: 'main', 
+            url: "https://github.com/tanreaper/jenkins-react-deployment.git")
+        }
     }
 
     stage('Build image') {
