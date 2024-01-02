@@ -6,6 +6,10 @@ pipeline {
   }
 
   agent any
+  tools {
+        docker 'latest'
+        jdk '17'
+  }
 
   stages {
 
