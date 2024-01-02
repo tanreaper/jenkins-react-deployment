@@ -16,7 +16,7 @@ pipeline {
     stage('Docker Build and Push') {
       steps {
         script{
-          withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'dockerhub-credential', usernameVariable: 'DOCKER_USERNAME', passwordVariable:'DOCKER_PASSWORD']]) {
+          withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable:'DOCKER_PASSWORD']]) {
             sh "$DOCKER_USERNAME"
             sh "$DOCKER_PASSWORD"
           }
