@@ -1,6 +1,7 @@
 pipeline {
 
   environment {
+    PATH = "/usr/local/bin:$PATH"
     dockerimagename = "tanreaper/react-app"
     dockerImage = ""
   }
