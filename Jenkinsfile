@@ -17,7 +17,7 @@ pipeline {
       steps {
         script{
           withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable:'DOCKER_PASSWORD']]) {
-            sh "docker build -t tanreaper/react-app ."
+            dockerImage = docker.build dockerimagename
             sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
             sh "docker push tanreaper/react-app"
           }
