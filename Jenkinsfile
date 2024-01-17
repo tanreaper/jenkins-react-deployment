@@ -7,6 +7,9 @@ pipeline {
   }
   agent any
   stages {
+    stage('testing') {
+      checkout scm
+    }
     stage('Git checkout') {
       steps {
         git(branch: 'main', 
@@ -24,12 +27,12 @@ pipeline {
     //     }
     //   }
     // } 
-    stage('Deploy to Minikube') {
-      steps {
-        sh 'kubectl apply -f deployment.yaml'
-        sh 'kubectl apply -f service.yaml'
-      }
-    }  
+    // stage('Deploy to Minikube') {
+    //   steps {
+    //     sh 'kubectl apply -f deployment.yaml'
+    //     sh 'kubectl apply -f service.yaml'
+    //   }
+    // }  
   }
 
 }
